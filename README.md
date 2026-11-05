@@ -2,7 +2,7 @@
 
 Source code and data for **Flying-Arc Insertion Ant Colony Optimization (FAI-ACO)** and the original ACO baseline on the Traveling Salesman Problem (TSP).
 
-This repository accompanies the paper *Flying-Arc Insertion Ant Colony Optimization: An Arc-Based Tour Construction Mechanism for the Traveling Salesman Problem* (ICAE 2026). The paper proposes FAI-ACO as a candidate tour-construction mechanism and compares it with the original ACO on three instances. For results and their interpretation, please refer to the paper; this repository only provides the code and data needed to rerun the experiments.
+This repository accompanies the paper *Flying-Arc Insertion Ant Colony Optimization: An Arc-Based Tour Construction Mechanism for the Traveling Salesman Problem* by Zainudin Zukhri, Fathul Wahid, Imam Djati Widodo, and Agus Mansur, accepted for presentation at the 9th International Conference on Applied Engineering (ICAE 2026). The paper proposes FAI-ACO as a candidate tour-construction mechanism and compares it with the original ACO on three instances. For results and their interpretation, please refer to the paper; this repository only provides the code and data needed to rerun the experiments.
 
 ## Repository layout
 
@@ -84,7 +84,7 @@ These notes describe how the code behaves, so that readers interpreting the runt
 2. **Runtime definition.** `Start Time` is taken after the instance is read and before the data structures are allocated. The timestamp of each iteration (`Iteration End timestamp`) is taken after all ants have built their tours and *before* the pheromone update of that iteration. `End Time` in the Summary sheet is the timestamp of the last iteration. Consequently the interval between `Start Time` and `End Time` does not include the pheromone update of the last iteration.
 3. **Local search in FAI-ACO.** After each insertion, the reordering-based local search generates all candidates from the same closed partial tour (every rotation of the tour combined with moving the first city to each later position), recomputes the full length of each candidate, and applies the best candidate once if it is shorter than the current tour. It is a single pass of best improvement, not an iterated local search, and it makes no claim of local optimality.
 4. **FAI-ACO tour construction.** Each ant starts from a city drawn with `random.randint`, then adds two more cities drawn uniformly at random with `numpy.random`. Once three cities are placed, each further step releases an arc of the closed partial tour with probability proportional to the complementary probability (one minus the arc's normalized pheromone–heuristic weight); the unvisited city with the smallest endpoint-sum insertion cost is inserted into the released arc.
-5. **Start cities in the original ACO.** When m = n (eil51 and kroA100), ant *k* starts from city *k*. When m < n (oliver30), a start city is drawn for each ant once, before the first iteration, and is reused in every iteration. In both cases city 1 is swapped into the position that the start city occupies in the initial city list.
+5. **Start cities in the original ACO.** Start cities in the original ACO. In all three configurations of the paper, the original ACO uses m = n (30, 51, and 100 ants), so ant k starts from city k in every iteration. The code also contains a branch for m ≠ n, in which a start city is drawn for each ant once before the first iteration and reused in every iteration; this branch is not used in the reported experiments. In both cases, city 1 is swapped into the position that the start city occupies in the initial city list.
 6. **Console output** reports the best-so-far tour length per iteration and is not part of the log.
 
 ## Output log
@@ -103,7 +103,11 @@ The statistical analysis reported in the paper (Mann–Whitney U tests with Holm
 
 ## Citation
 
-If you use this code, please cite the paper above. A citable archive (DOI) will be added here once available.
+If you use this code, please cite the paper:
+
+Zainudin Zukhri, Fathul Wahid, Imam Djati Widodo, and Agus Mansur, "Flying-Arc Insertion Ant Colony Optimization: An Arc-Based Tour Construction Mechanism for the Traveling Salesman Problem," accepted for presentation at the 9th International Conference on Applied Engineering (ICAE 2026).
+
+Full bibliographic details will be added after the proceedings are published.
 
 ```
 DOI: (to be added)
