@@ -2,7 +2,7 @@
 
 Source code and data for **Flying-Arc Insertion Ant Colony Optimization (FAI-ACO)** and the original ACO baseline on the Traveling Salesman Problem (TSP).
 
-This repository accompanies the paper *Flying-Arc Insertion Ant Colony Optimization: An Arc-Based Tour Construction Mechanism for the Traveling Salesman Problem* by Zainudin Zukhri, Fathul Wahid, Imam Djati Widodo, and Agus Mansur, accepted for presentation at the 9th International Conference on Applied Engineering (ICAE 2026). The paper proposes FAI-ACO as a candidate tour-construction mechanism and compares it with the original ACO on three instances. For results and their interpretation, please refer to the paper; this repository only provides the code and data needed to rerun the experiments.
+This repository accompanies the paper *Flying-Arc Insertion Ant Colony Optimization: An Arc-Based Tour Construction Mechanism for the Traveling Salesman Problem* by Zainudin Zukhri, Fathul Wahid, Imam Djati Widodo, and Agus Mansur, presented at the 9th International Conference on Applied Engineering (ICAE 2026). The paper proposes FAI-ACO as a candidate tour-construction mechanism and compares it with the original ACO on three instances. For results and their interpretation, please refer to the paper; this repository only provides the code and data needed to rerun the experiments.
 
 ## Repository layout
 
